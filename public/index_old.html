@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Card Game</title>
+    <style>
+        .card {
+          border: 1px solid black;
+          height: 400px;
+          width: 300px;
+          border-radius: 9px;
+        }
+        .section {
+          border: 1px solid black;
+          border-radius: 9px;
+        }
+        .title-bar{
+          height: 20px;
+          width: 300px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+        }
+
+        .title-bar span{
+          margin-left: 10px;
+        }
+
+        .info-bar {
+          height: 100%  
+          width: 20px;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+          float: left;
+        }
+
+        .main{
+          width: 276px;
+          float: left;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+        }
+
+        .main .picture{
+          box-sizing: border-box;
+          margin: 10px;
+          width: 256px;
+          height: 200px;          
+          background-size: cover;
+          background-image: url('http://placekitten.com/256/200');
+        }
+
+        .main .rules-text{
+          margin: 10px;
+          height: 145px;
+          border: 1px solid black;
+        }
+
+        .mana-symbol{
+          width: 18px;
+          height: 18px;
+          border-radius: 40px;
+          border: 1px solid black;
+          text-align: center;
+        }
+
+    </style>
+  </head>
+  <body>
+  <div class='card'>
+    <div class='title-bar section'>
+      <span> Cat</span>
+    </div>
+    <div>
+      <div class='info-bar section'>
+        <div class='mana-symbol'>5</div>
+        <div class='mana-symbol'>W</div>
+        <div class='mana-symbol'>W</div>
+        <div class='mana-symbol'>W</div>
+        <div class='mana-symbol'>W</div>
+        <div class='mana-symbol'>W</div>
+      </div>  
+      <div class='main section'>
+        <div class='picture section'>
+        </div>
+        <div class='rules-text section'>
+          Does stuff
+        </div>
+      </div>
+      <div class='extra section'>
+        <div class='mana-symbol'>
+          R
+        </div>
+      </div>  
+  </div>
+  </body>
+</html>
