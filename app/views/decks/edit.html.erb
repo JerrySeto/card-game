@@ -1,0 +1,82 @@
+<div class='row3'>
+  <div class='column' id='search'></div>
+  <div class='column' id='deck-list'></div>
+  <div class='column' id='preview'></div>
+</div>
+<script type='text/x-handlebars-template' id="card-search-view">
+  <div class='quick-search-wrap'>
+    <div class='quick-search-toggle'>Quick Search&#8628;</div>
+    <ul class='quick-search-filters' style='display:none'>
+      <li data-color='Fire' class='Fire mana'></li>
+      <li data-color='Water' class='Water mana'></li>
+      <li data-color='Earth' class='Earth mana'></li>
+      <li data-color='Wind' class='Wind mana'></li>
+      <li data-color='Ether' class='Ether mana'></li>
+    </ul>
+  </div>
+  <form action="<%= search_cards_path %>">
+    <input type='text' name="query">
+    <input type='submit' value='Search'>
+  </form>
+</script>
+
+<script type='text/x-handlebars-template' id="card-search-item-view">
+  <div>
+    <span class='{{color}} mana'></span>
+    <span class='name'>{{name}}</span>
+    {{#if showCreatureStats}}<span>{{power}}/{{toughness}}</span>{{/if}}
+    <span class='add-btn card-adjust-btn'>+</span>
+  </div>
+</script>
+
+<script type='text/x-handlebars-template' id="card-search-results-view">
+
+</script>
+
+<script type='text/x-handlebars-template' id='deck-item-view'>
+  <div><strong class='name'></strong><strong class='amount'></strong><div class='add-btn card-adjust-btn'>+</div><div class='remove-btn card-adjust-btn'>-</div></div>
+</script>
+
+<script type'text/x-handlebars-template' id='deck-list-view'>
+
+</script>
+
+<script type='text/x-handlebars-template' id="card-view">
+  <div class='card'>
+    <div class='title-bar section'>
+      <span> {{name}}</span>
+    </div>
+    <div>
+      <div class='info-bar section'>
+        {{#each cost}}
+          <div class='mana-symbol'>{{this}}</div>
+        {{/each}}
+        <div class='power-toughness'>
+          <div class='mana-symbol'>{{power}}</div>
+          <div class='mana-symbol'>{{toughness}}</div>
+        </div>
+      </div>
+      <div class='main section'>
+        <div class='picture section'>
+        </div>
+        <div class='card-type'>
+          {{card_type}}
+        </div>
+        <div class='rules-text section'>
+          <div>
+            {{rules_text}}
+          </div>
+        </div>
+        <div class='extra section'>
+          <div class='mana-symbol rarity'>{{rarity}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type='text/javascript'>
+  bootstrapped = {
+    deckId: <%= @deck.id%>
+  }
+</script>

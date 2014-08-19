@@ -1,0 +1,49 @@
+<%= link_to 'Make New Card', new_card_path %>
+Quick Filters:
+<ol>
+  <li><%= link_to 'All Cards', cards_path %></li>
+  <li><%= link_to 'Ether Cards', cards_path(:"card[color]" => 'Ether') %></li>
+  <li><%= link_to 'Fire Cards', cards_path(:"card[color]" => 'Fire') %></li>
+  <li><%= link_to 'Water Cards', cards_path(:"card[color]" => 'Water')%></li>
+  <li><%= link_to 'Earth Cards', cards_path(:"card[color]" => 'Earth')%></li>
+  <li><%= link_to 'Wind Cards', cards_path(:"card[color]" => 'Wind')%></li>
+</ol>
+<hr>
+
+<h1><%= "Listing #{@color.present? ?  @color : 'all'} cards" %></h1>
+* = no extra rules text
+
+<table>
+  <thead>
+    <tr>
+      <th>Name </th>
+      <th>Card type</th>
+      <th>Color</th>
+      <th>Cost</th>
+      <th>Power</th>
+      <th>Toughness</th>
+      <th>Rarity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cards.each do |card| %>
+      <tr>
+        <td><%= link_to "#{!card.rules_text.present? ? '*': ''}#{card.name}", card, :target => '_blank'%></td>
+        <td><%= card.card_type %></td>
+        <td><%= card.color %></td>
+        <td><%= card.cost %></td>
+        <td><%= card.power %></td>
+        <td><%= card.toughness %></td>
+        <td><%= card.rarity %></td>
+        <td><%= link_to 'Edit', edit_card_path(card) %></td>
+        <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+<br>
+
+<% content_for :javascript_stuff do %>
+<%end%>

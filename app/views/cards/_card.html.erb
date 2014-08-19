@@ -1,0 +1,30 @@
+<div class='card'>
+  <div class='title-bar section'>
+    <span> <%=card.name%></span>
+  </div>
+  <div>
+    <div class='info-bar section'>
+      <% if card.cost.present? %>
+        <%- cost_to_symbols(card.cost).each do |symbol|%>
+          <div class='mana-symbol'><%= symbol%></div>
+        <%- end %>
+      <% end %>
+      <div class='power-toughness'>
+        <% if card.power.present? %><div class='mana-symbol'><%=card.power%></div><%end%>
+        <% if card.toughness.present? %><div class='mana-symbol'><%=card.toughness%></div><%end%>
+      </div>
+    </div>
+    <div class='main section'>
+      <div class='picture section'>
+      </div>
+      <div class='card-type'>
+        <%=card.card_type%>
+      </div>
+      <div class='rules-text section'>
+        <div>
+          <%=card.rules_text%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

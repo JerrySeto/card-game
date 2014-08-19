@@ -1,0 +1,50 @@
+<%= form_for(@card) do |f| %>
+  <% if @card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@card.errors.count, "error") %> prohibited this card from being saved:</h2>
+
+      <ul>
+      <% @card.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :card_type %><br>
+    <%= f.text_field :card_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color %><br>
+    <%= f.select :color, options_for_select(Card::VALID_COLORS.map{|color| [color, color]})%>
+  </div>
+
+  <div class="field">
+    <%= f.label :cost %><br>
+    <%= f.text_field :cost %>
+  </div>
+  <div class="field">
+    <%= f.label :rules_text %><br>
+    <%= f.text_area :rules_text %>
+  </div>
+  <div class="field">
+    <%= f.label :power %><br>
+    <%= f.number_field :power %>
+  </div>
+  <div class="field">
+    <%= f.label :toughness %><br>
+    <%= f.number_field :toughness %>
+  </div>
+  <div class="field">
+    <%= f.label :rarity %><br>
+    <%= f.number_field :rarity %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= javascript_include_tag 'pace.min'%>
+  <title>CardGame</title>
+
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id='main'>
+    <ul id='nav'>
+      <li><%= link_to 'Decks', decks_path %></li>
+      <li><%= link_to 'Cards', cards_path %></li>
+    </ul>
+    <hr style='clear:both'>
+    <%= yield %>
+  </div>
+  <%= javascript_include_tag 'application'%>
+  <%= yield :javascript_stuff%>
+</body>
+</html>

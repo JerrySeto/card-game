@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+  <strong>Name:</strong>
+  <%= @deck.name %>
+  <hr>
+  <div class="<%= params[:print] ? 'plain': ''%>">
+  <% count = 0%>
+  <% @deck.deck_cards.each.with_index do |deck_card, index| %>
+    <% deck_card.amount.times do %>
+      <%= render('cards/card', :card => deck_card.card) %>
+      <% count += 1 %>
+      <% if count % 9 == 0 %>
+        <div class="page-break"></div>
+      <% end %>
+    <%end%>
+  <%end%>
+  <div>

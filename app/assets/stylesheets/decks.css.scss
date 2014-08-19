@@ -1,0 +1,80 @@
+// Place all the styles related to the decks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.search-result.active{
+  font-weight: bold;
+}
+
+.amount{
+  margin-left: 10px;
+}
+
+.search-result, #deck-list div{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.card-adjust-btn{
+  margin-left: 5px;
+  text-align: center;
+  display: inline-block;
+  width: 25px;
+  border-radius: 9px;
+  border: 1px solid black;
+  cursor: pointer;
+  float: right;
+}
+
+.row3 .column{
+  display: inline-block;
+  width: 205px;
+  float:left;
+  margin-left: 5px;
+  height: 800px;
+  overflow-y: overlay;
+}
+
+.row3 .column#deck-list{
+  width: 340px;
+}
+
+#main {
+  width: 800px;
+  margin: 0 auto;
+}
+
+
+#deck-list .deck-item:nth-child(odd){
+  background: #f9f9f9;
+}
+
+.search-result.card-item{
+  padding: 2px 0px 2px 0px;
+}
+.search-result.card-item:nth-child(odd){
+  border: 1px solid black;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.card-item{
+  min-height: 20px;
+}
+
+.card-item .name{
+  width: 100px;
+  overflow:hidden;
+  display:inline-block;
+}
+
+.card-item .amount{
+  float:right;
+}
+
+.quick-search-wrap *{
+  cursor: pointer;
+}
