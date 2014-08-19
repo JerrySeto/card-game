@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Card type</th>
+      <th>Color</th>
       <th>Cost</th>
       <th>Rules text</th>
       <th>Power</th>
@@ -17,6 +18,7 @@
     <% @cards.each do |card| %>
       <tr>
         <td><%= card.card_type %></td>
+        <td><%= card.color %></td>
         <td><%= card.cost %></td>
         <td><%= card.rules_text %></td>
         <td><%= card.power %></td>
