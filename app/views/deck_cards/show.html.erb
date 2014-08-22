@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Deck:</strong>
+  <%= @deck_card.deck_id %>
+</p>
+
+<p>
+  <strong>Card:</strong>
+  <%= @deck_card.card_id %>
+</p>
+
+<%= link_to 'Edit', edit_deck_card_path(@deck_card) %> |
+<%= link_to 'Back', deck_cards_path %>
