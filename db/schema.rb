@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140831005414) do
     t.integer  "card_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "amount"
+    t.integer  "amount",     default: 1
   end
 
   create_table "decks", force: true do |t|

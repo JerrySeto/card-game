@@ -3,6 +3,16 @@
 <p>
   <strong>Name:</strong>
   <%= @deck.name %>
+  <table>
+    <th>Card</th>
+    <th>Amount</th>
+    <% @deck.deck_cards.each do |deck_cards| %>
+      <tr>
+        <td><%= deck_cards.card.name%></td>
+        <td> <%= deck_cards.amount%></td>
+      </tr>
+    <%end%>
+  </table>
 </p>
 
 <%= link_to 'Edit', edit_deck_path(@deck) %> |
