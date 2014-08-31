@@ -14,14 +14,8 @@
       <tr>
         <td><%= deck_card.deck_id %></td>
         <td><%= deck_card.card_id %></td>
-        <td><%= link_to 'Show', deck_card %></td>
-        <td><%= link_to 'Edit', edit_deck_card_path(deck_card) %></td>
         <td><%= link_to 'Destroy', deck_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Deck card', new_deck_card_path %>

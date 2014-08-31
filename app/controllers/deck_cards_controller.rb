@@ -1,31 +1,16 @@
 class DeckCardsController < ApplicationController
-  before_action :set_deck_card, only: [:show, :edit, :update, :destroy]
+    before_action :set_deck_card, only: [:update, :destroy, :show]
 
-  # GET /deck_cards
-  # GET /deck_cards.json
   def index
-    @deck_cards = DeckCard.all
+    @deck = Deck.includes(:deck_cards).includes(:cards).find(params[:deck_id])
+    @deck_cards = @deck.deck_cards
   end
 
-  # GET /deck_cards/1
-  # GET /deck_cards/1.json
   def show
   end
 
-  # GET /deck_cards/new
-  def new
-    @deck_card = DeckCard.new
-  end
-
-  # GET /deck_cards/1/edit
-  def edit
-  end
-
-  # POST /deck_cards
-  # POST /deck_cards.json
   def create
     @deck_card = DeckCard.new(deck_card_params)
-
     respond_to do |format|
       if @deck_card.save
         format.html { redirect_to @deck_card, notice: 'Deck card was successfully created.' }
@@ -37,11 +22,9 @@ class DeckCardsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /deck_cards/1
-  # PATCH/PUT /deck_cards/1.json
   def update
     respond_to do |format|
-      if @deck_card.update(deck_card_params)
+      if @deck_card.update(deck_card_params.slice(:amount))
         format.html { redirect_to @deck_card, notice: 'Deck card was successfully updated.' }
         format.json { render :show, status: :ok, location: @deck_card }
       else
@@ -51,8 +34,6 @@ class DeckCardsController < ApplicationController
     end
   end
 
-  # DELETE /deck_cards/1
-  # DELETE /deck_cards/1.json
   def destroy
     @deck_card.destroy
     respond_to do |format|
@@ -62,13 +43,13 @@ class DeckCardsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_deck_card
       @deck_card = DeckCard.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+
     def deck_card_params
-      params.require(:deck_card).permit(:deck_id, :card_id)
+      params.require(:deck_card).permit(:deck_id, :card_id, :amount)
     end
 end

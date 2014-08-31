@@ -1,6 +1,67 @@
-<h1>Editing deck</h1>
+<div class='row3'>
+  <div class='column' id='search'></div>
+  <div class='column' id='deck-list'></div>
+  <div class='column' id='preview'></div>
+</div>
+<script type='text/x-handlebars-template' id="card-search-view">
+  <form action="<%= search_cards_path %>">
+    <input type='text' name="query">
+    <input type='submit'>
+  </form>
+</script>
 
-<%= render 'form' %>
+<script type='text/x-handlebars-template' id="card-search-item-view">
+  <div><span class='name'>{{name}}</span><div class='add-btn card-adjust-btn'>+</div></div>
+</script>
 
-<%= link_to 'Show', @deck %> |
-<%= link_to 'Back', decks_path %>
+<script type='text/x-handlebars-template' id="card-search-results-view">
+
+</script>
+
+<script type='text/x-handlebars-template' id='deck-item-view'>
+  <div><span class='name'></span><span class='amount'></span><div class='add-btn card-adjust-btn'>+</div><div class='remove-btn card-adjust-btn'>-</div></div>
+</script>
+
+<script type'text/x-handlebars-template' id='deck-list-view'>
+
+</script>
+
+<script type='text/x-handlebars-template' id="card-view">
+  <div class='card'>
+    <div class='title-bar section'>
+      <span> {{name}}</span>
+    </div>
+    <div>
+      <div class='info-bar section'>
+        {{#each cost}}
+          <div class='mana-symbol'>{{symbol}}</div>
+        {{/each}}
+        <div class='power-toughness'>
+          <div class='mana-symbol'>{{power}}</div>
+          <div class='mana-symbol'>{{toughness}}</div>
+        </div>
+      </div>
+      <div class='main section'>
+        <div class='picture section'>
+        </div>
+        <div class='card-type'>
+          {{card_type}}
+        </div>
+        <div class='rules-text section'>
+          <span>
+            {{rules_text}}
+          </span>
+        </div>
+        <div class='extra section'>
+          <div class='mana-symbol rarity'>{{rarity}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type='text/javascript'>
+  bootstrapped = {
+    deckId: <%= @deck.id%>
+  }
+</script>

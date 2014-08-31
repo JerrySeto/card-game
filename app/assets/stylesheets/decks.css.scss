@@ -1,3 +1,61 @@
 // Place all the styles related to the decks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.search-result.active{
+  font-weight: bold;
+}
+
+span.amount{
+  margin-left: 10px;
+}
+
+.search-result, #deck-list div{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.card-adjust-btn{
+  margin-left: 5px;
+  text-align: center;
+  display: inline-block;
+  width: 25px;
+  border-radius: 9px;
+  border: 1px solid black;
+  cursor: pointer;
+  float: right;
+}
+
+.row3 .column{
+  display: inline-block;
+  width: 200px;
+  float:left;
+  margin-left: 5px;
+}
+
+#main {
+  width: 700px;
+  margin: 0 auto;
+}
+
+
+#deck-list .deck-item:nth-child(odd){
+  background: #f9f9f9;
+}
+
+.card-item{
+  min-height: 20px;
+}
+
+.card-item span.name{
+  width: 100px;
+  overflow:hidden;
+  display:inline-block;
+}
+
+.card-item span.amount{
+  float:right;
+}

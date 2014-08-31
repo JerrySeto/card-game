@@ -12,4 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require underscore-min
+//= require handlebars-v2.0.0
+//= require backbone-min
+//= require backbone.marionette.min
+//= require backbone.stickit.min
+//= require app/app
+//= require_tree ./app/models
+//= require_tree ./app/collections
+//= require_tree ./app/views
+//= require ./app/router
 //= require_tree .

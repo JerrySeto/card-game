@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
-  resources :deck_cards
 
-  resources :decks
 
-  resources :cards
-  root 'cards#index'
+  resources :decks do
+    resources :deck_cards, :only => [:index]
+  end
+  resources :deck_cards, :only => [:show, :create, :update, :destroy]
+
+  resources :cards do
+    collection do
+        get 'search'
+    end
+  end
+  root 'decks#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
