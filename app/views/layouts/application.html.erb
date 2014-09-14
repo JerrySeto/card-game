@@ -6,9 +6,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id='main'>
-  <%= yield %>
-</div>
-<%= javascript_include_tag 'application'%>
+  <div id='main'>
+    <ul id='nav'>
+      <li><%= link_to 'Decks', decks_path %></li>
+      <li><%= link_to 'Cards', cards_path %></li>
+    </ul>
+    <hr style='clear:both'>
+    <%= yield %>
+  </div>
+  <%= javascript_include_tag 'application'%>
 </body>
 </html>
