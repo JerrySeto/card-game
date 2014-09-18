@@ -7,7 +7,11 @@
 }
 
 @media print {
-  .page-break { display: block; page-break-before: always; }
+  .page-break {
+    clear: both;
+    display: block;
+    page-break-before: always;
+  }
 }
 
 .plain .card{
