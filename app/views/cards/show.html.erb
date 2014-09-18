@@ -1,34 +1,3 @@
-<div class='card'>
-  <div class='title-bar section'>
-    <span> <%=@card.name%></span>
-  </div>
-  <div>
-    <div class='info-bar section'>
-      <div class='mana-symbol'><%= @card.cost.gsub(/[^\d]/, '')%></div>
-      <%- @card.cost.gsub(/\d/, '').split('').each do |mana_symbol|%>
-        <div class='mana-symbol'><%= mana_symbol%></div>
-      <%- end%>
-      <div class='power-toughness'>
-        <div class='mana-symbol'><%=@card.power%></div>
-        <div class='mana-symbol'><%=@card.toughness%></div>
-      </div>
-    </div>  
-    <div class='main section'>
-      <div class='picture section'>
-      </div>
-      <div class='card-type'>
-        <%=@card.card_type%>
-      </div>
-      <div class='rules-text section'>
-        <span>
-          <%=@card.rules_text%>
-        </span> 
-      </div>
-      <div class='extra section'>
-        <div class='mana-symbol'><%=@card.rarity%></div>
-      </div>  
-    </div>
-  </div>
-</div>
+<%= render 'card', :card => @card %>
 <%= link_to 'Edit', edit_card_path(@card) %> |
 <%= link_to 'Back', cards_path %>

@@ -1,19 +1,11 @@
 <p id="notice"><%= notice %></p>
-
-<p>
   <strong>Name:</strong>
   <%= @deck.name %>
-  <table>
-    <th>Card</th>
-    <th>Amount</th>
-    <% @deck.deck_cards.each do |deck_cards| %>
-      <tr>
-        <td><%= deck_cards.card.name%></td>
-        <td> <%= deck_cards.amount%></td>
-      </tr>
+  <hr>
+  <div class="<%= params[:print] ? 'plain': ''%>">
+  <% @deck.deck_cards.each do |deck_card| %>
+    <% deck_card.amount.times do %>
+    <%= render('cards/card', :card => deck_card.card) %>
     <%end%>
-  </table>
-</p>
-
-<%= link_to 'Edit', edit_deck_path(@deck) %> |
-<%= link_to 'Back', decks_path %>
+  <%end%>
+  <div>
