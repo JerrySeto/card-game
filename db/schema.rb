@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140831005414) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cards", force: true do |t|
     t.string   "card_type"
     t.string   "cost"

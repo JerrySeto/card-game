@@ -4,13 +4,15 @@
   </div>
   <div>
     <div class='info-bar section'>
-      <div class='mana-symbol'><%= card.cost.gsub(/[^\d]/, '')%></div>
-      <%- card.cost.gsub(/\d/, '').split('').each do |mana_symbol|%>
-        <div class='mana-symbol'><%= mana_symbol%></div>
-      <%- end%>
+      <% if card.cost.present? %>
+        <div class='mana-symbol'><%= card.cost.gsub(/[^\d]/, '')%></div>
+        <%- card.cost.gsub(/\d/, '').split('').each do |mana_symbol|%>
+          <div class='mana-symbol'><%= mana_symbol%></div>
+        <%- end%>
+      <% end %>
       <div class='power-toughness'>
-        <div class='mana-symbol'><%=card.power%></div>
-        <div class='mana-symbol'><%=card.toughness%></div>
+        <% if card.power.present? %><div class='mana-symbol'><%=card.power%></div><%end%>
+        <% if card.toughness.present? %><div class='mana-symbol'><%=card.toughness%></div><%end%>
       </div>
     </div>
     <div class='main section'>
@@ -23,9 +25,6 @@
         <div>
           <%=card.rules_text%>
         </div>
-      </div>
-      <div class='extra section'>
-        <div class='mana-symbol'><%=card.rarity%></div>
       </div>
     </div>
   </div>

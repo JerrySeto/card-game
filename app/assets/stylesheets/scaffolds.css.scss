@@ -67,3 +67,17 @@ div {
     list-style: square;
   }
 }
+
+table {
+  border: solid thin;
+  border-collapse: collapse;
+}
+
+table td,
+table th{
+  border: solid thin;
+  padding: 0.5rem 0.5rem;
+}
+tr:nth-child(odd) {
+  background: #f9f9f9;
+}

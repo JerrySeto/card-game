@@ -4,7 +4,8 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all
+    @color = card_params.fetch(:color, nil)
+    @cards = Card.sorted.where(card_params)
   end
 
   # GET /cards/1
@@ -73,6 +74,10 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:card_type, :cost, :rules_text, :power, :toughness, :rarity, :name, :color)
+      params.fetch(:card, {}).permit(*whitelist)
+    end
+
+    def whitelist
+      [:card_type, :cost, :rules_text, :power, :toughness, :rarity, :name, :color]
     end
 end
