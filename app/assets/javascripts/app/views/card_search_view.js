@@ -2,10 +2,8 @@ App.Views.CardSearchView = Backbone.View.extend({
   template: App.addTemplate('#card-search-view'),
   events: {
     "submit form" : 'search',
-    "keypress input[name='query']" : 'updateQuery'
   },
   initialize: function(){
-    this.query = ''
   },
   render: function(){
     this.$el.append(this.template())
@@ -14,20 +12,21 @@ App.Views.CardSearchView = Backbone.View.extend({
   },
   search: function(event){
     var self = this;
+    var query = this.queryInput.val()
     event.preventDefault();
-    if(!this.searching && this.query !== ''){
+
+    if(!this.searching && query !== ''){
       self.searching = true;
-      this.collection.search(this.query).then(function(){
+      this.collection.search(query).then(function(){
         self.searching = false;
         self.queryInput.prop('disabled', false)
       })
-      this.query = ''
       this.queryInput.prop('disabled', true)
       this.queryInput.val('')
     }
 
   },
   updateQuery:function(event){
-    this.query = $(event.currentTarget).val()
+
   }
 })

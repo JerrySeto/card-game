@@ -9,12 +9,10 @@ class Card < ActiveRecord::Base
 
   validates :color, inclusion: {in: Card::VALID_COLORS}
   def self.search_by_name(query)
-    Card.where('name like ?', "%#{query}%")
+    Card.where('lower(name) like lower(?)', "%#{query}%")
   end
 
   def self.sorted
     order(:card_type, :name)
   end
-
-
 end
