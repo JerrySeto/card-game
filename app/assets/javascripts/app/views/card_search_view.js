@@ -24,9 +24,5 @@ App.Views.CardSearchView = Backbone.View.extend({
       this.queryInput.prop('disabled', true)
       this.queryInput.val('')
     }
-
-  },
-  updateQuery:function(event){
-
   }
 })

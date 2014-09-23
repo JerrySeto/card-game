@@ -25,3 +25,31 @@
 #nav li:nth-child(even){
   border-left: none;
 }
+
+.mana {
+  background: url('/assets/mm24_fivecolors.jpg') no-repeat;
+  overflow: hidden;
+  height: 25px;
+  width: 20px;
+  background-size: 500% 100%;
+  display: inline-block;
+}
+.mana.Wind{
+  background-position : -3px 0px;
+}
+
+.mana.Water{
+  background-position : -21px 0px;
+}
+
+.mana.Fire{
+  background-position : -58px 0px;
+}
+
+.mana.Earth{
+  background-position : -77px 0px;
+}
+
+.mana.Ether{
+  background-position : -40px 0px;
+}

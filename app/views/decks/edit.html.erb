@@ -11,7 +11,12 @@
 </script>
 
 <script type='text/x-handlebars-template' id="card-search-item-view">
-  <div><span class='name'>{{name}}</span><div class='add-btn card-adjust-btn'>+</div></div>
+  <div>
+    <span class='{{color}} mana'></span>
+    <span class='name'>{{name}}</span>
+    {{#if showCreatureStats}}<span>{{power}}/{{toughness}}</span>{{/if}}
+    <span class='add-btn card-adjust-btn'>+</span>
+  </div>
 </script>
 
 <script type='text/x-handlebars-template' id="card-search-results-view">
@@ -19,7 +24,7 @@
 </script>
 
 <script type='text/x-handlebars-template' id='deck-item-view'>
-  <div><span class='name'></span><span class='amount'></span><div class='add-btn card-adjust-btn'>+</div><div class='remove-btn card-adjust-btn'>-</div></div>
+  <div><strong class='name'></strong><strong class='amount'></strong><div class='add-btn card-adjust-btn'>+</div><div class='remove-btn card-adjust-btn'>-</div></div>
 </script>
 
 <script type'text/x-handlebars-template' id='deck-list-view'>
@@ -48,9 +53,9 @@
           {{card_type}}
         </div>
         <div class='rules-text section'>
-          <span>
+          <div>
             {{rules_text}}
-          </span>
+          </div>
         </div>
         <div class='extra section'>
           <div class='mana-symbol rarity'>{{rarity}}</div>

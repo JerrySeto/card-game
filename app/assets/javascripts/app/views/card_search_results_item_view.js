@@ -6,7 +6,9 @@ App.Views.CardSearchResultItemView = Backbone.View.extend({
     'click .add-btn' : 'triggerAdd'
   },
   render: function(){
-    this.$el.append(this.template(this.model.toJSON()))
+    attrs = this.model.toJSON();
+    attrs.showCreatureStats = attrs.power || attrs.toughness;
+    this.$el.append(this.template(attrs));
     return this.el
   },
   triggerClicked: function(){

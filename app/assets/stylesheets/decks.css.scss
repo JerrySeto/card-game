@@ -6,7 +6,7 @@
   font-weight: bold;
 }
 
-span.amount{
+.amount{
   margin-left: 10px;
 }
 
@@ -31,13 +31,19 @@ span.amount{
 
 .row3 .column{
   display: inline-block;
-  width: 200px;
+  width: 205px;
   float:left;
   margin-left: 5px;
+  height: 800px;
+  overflow-y: overlay;
+}
+
+.row3 .column#deck-list{
+  width: 340px;
 }
 
 #main {
-  width: 700px;
+  width: 800px;
   margin: 0 auto;
 }
 
@@ -46,16 +52,26 @@ span.amount{
   background: #f9f9f9;
 }
 
+.search-result.card-item{
+  padding: 2px 0px 2px 0px;
+}
+.search-result.card-item:nth-child(odd){
+  border: 1px solid black;
+  border-left: 0px;
+  border-right: 0px;
+}
+
 .card-item{
   min-height: 20px;
 }
 
-.card-item span.name{
+.card-item .name{
   width: 100px;
   overflow:hidden;
   display:inline-block;
 }
 
-.card-item span.amount{
+.card-item .amount{
   float:right;
 }
+
