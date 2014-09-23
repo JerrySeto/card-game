@@ -4,6 +4,16 @@
   <div class='column' id='preview'></div>
 </div>
 <script type='text/x-handlebars-template' id="card-search-view">
+  <div class='quick-search-wrap'>
+    <div class='quick-search-toggle'>Quick Search&#8628;</div>
+    <ul class='quick-search-filters' style='display:none'>
+      <li data-color='Fire' class='Fire mana'></li>
+      <li data-color='Water' class='Water mana'></li>
+      <li data-color='Earth' class='Earth mana'></li>
+      <li data-color='Wind' class='Wind mana'></li>
+      <li data-color='Ether' class='Ether mana'></li>
+    </ul>
+  </div>
   <form action="<%= search_cards_path %>">
     <input type='text' name="query">
     <input type='submit' value='Search'>

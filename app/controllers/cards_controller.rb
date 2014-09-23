@@ -63,7 +63,11 @@ class CardsController < ApplicationController
   end
 
   def search
-    @cards = Card.search_by_name(params[:query]) if params[:query]
+    if params[:query]
+      @cards = Card.search_by_name(params[:query])
+    else
+      index
+    end
     render :index
   end
   private
